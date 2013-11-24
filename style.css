@@ -30,6 +30,10 @@ p, pre {
     border: 1px solid #000000;
 }
 
+#input_name {
+    margin-bottom: 10px;
+}
+
 #scores {
     margin-left: 45px;
     text-align: left;

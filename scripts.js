@@ -20,14 +20,7 @@ canvas.height = 480;
 var background = new Image();
 background.src = "doge.jpg";
 background.onload = function() {
-    $.get('doge_server.php').done(function(data) {
-        words = jQuery.parseJSON(data);
-        score = 0;
-        index = -1;
-        refreshCanvas();
-        $("#doge").text('"Let\'s play a game!"'); // Hello text
-        startGame();
-    });
+    initialize();
 };
 
 // More-button handler
@@ -122,8 +115,8 @@ function initialize() {
         words = jQuery.parseJSON(data);
         score = 0;
         index = -1;
-        refreshCanvas();
         $("#doge").text('"Let\'s play a game!"'); // Hello text
+        refreshCanvas();
         startGame();
     });
 }
