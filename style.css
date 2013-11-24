@@ -1,0 +1,36 @@
+/* Styles for Doge game! Wow! */
+
+html {
+    overflow-y:scroll;
+}
+
+body {
+    font-family: comic sans ms, sans-serif;
+    text-align: center;
+}
+
+p, pre {
+    font-size: 12pt;
+}
+
+.hidden {
+    display: none;
+}
+
+#word {
+    font-family: comic sans ms, sans-serif;
+}
+
+#container {
+    width: 640px;
+    margin: 20px auto;
+}
+
+#dogeCanvas {
+    border: 1px solid #000000;
+}
+
+#scores {
+    margin-left: 45px;
+    text-align: left;
+}

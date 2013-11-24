@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" title="styles" />
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <title>Doge game!</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Doge game</h1>
+        <p id="doge">"Let's play a game!"</p>
+        <canvas id="dogeCanvas">
+        </canvas>
+        <pre id="word"></pre>
+        <p id="fouls"></p>
+        
+        <div id="continue_controls" class="hidden">
+            <input id="button_more" type="button" value="More!"/>
+            <input id="button_nomore" type="button" value="No moar!"/>
+        </div>
+        <form id="submit_form" class="hidden">
+            Name: <input id="input_name" name="name" type="text" maxlength="15"/><br/>
+            <input id="button_submit" type="button" value="Supmit skore!"/>
+            <input id="button_again" type="button" value="Try again!"/>
+        </form>
+        <div id="score_area" class="hidden">
+            <p>Top scores!</p>
+            <pre id="scores"></pre>
+            <input id="button_newgame" type="button" value="Try again!"/>
+        </div>
+    </div>
+    <script type="text/javascript" src="scripts.js"></script>
+</body>
