@@ -10,34 +10,35 @@ $topScoreCount = 10; // Max count of top scores
 if(isset($_POST['submit_score'])) {
     // Parse new score
     $data = json_decode($_POST['submit_score']);
-    $current = [date('d.m.Y H:i'), substr(trim($data->{'player'}), 0, 15), $data->{'score'}];
-    
-    // Read old scores
-    $contents = json_decode(file_get_contents($filename), true);
-    
-    if (empty($contents)) {
-        // No scores yet
-        $contents = [$current];
-    } else {
-        array_push($contents, $current);
+    if ($data != null && $data->{'player'} != null && $data->{'score'} != null && is_int($data->{'score'})) {
+        $current = [date('d.m.Y H:i'), substr(trim($data->{'player'}), 0, 15), $data->{'score'}];
+        
+        // Read old scores
+        $contents = json_decode(file_get_contents($filename), true);
+        
+        if (empty($contents)) {
+            // No scores yet
+            $contents = [$current];
+        } else {
+            array_push($contents, $current);
+        }
+        // Sort the scores
+        usort($contents, 'cmp');
+        if (count($contents) > $topScoreCount) {
+            array_pop($contents);
+        }
+        
+        // Encode to JSON
+        $json_contents = json_encode($contents);
+        
+        // Save new top scores
+        $fhandle = fopen($filename, "w");
+        fwrite($fhandle, $json_contents);
+        fclose($fhandle);
+        
+        // Send results
+        echo $json_contents;
     }
-    // Sort the scores
-    usort($contents, 'cmp');
-    if (count($contents) > $topScoreCount) {
-        array_pop($contents);
-    }
-    
-    // Encode to JSON
-    $json_contents = json_encode($contents);
-    
-    // Save new top scores
-    $fhandle = fopen($filename, "w");
-    fwrite($fhandle, $json_contents);
-    fclose($fhandle);
-    
-    // Send results
-    echo $json_contents;
-    
 } else {
     // Shuffle the word order
     shuffle($doge_words);

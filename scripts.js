@@ -37,6 +37,7 @@ $("#button_nomore").on("click", function() {
 
 // Submit-button handler
 $("#button_submit").on("click", function() {
+    $("#submit_form").hide();
     // Construct the results and post to server
     var data = {"player" : getPlayerName(), "score" : score};
     $.post('doge_server.php', { submit_score : JSON.stringify(data) } )
