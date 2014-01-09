@@ -38,20 +38,20 @@ $("#button_nomore").on("click", function() {
 // Submit-button handler
 $("#button_submit").on("click", function() {
     $("#submit_form").hide();
+    
     // Construct the results and post to server
     var data = {"player" : getPlayerName(), "score" : score};
     $.post('doge_server.php', { submit_score : JSON.stringify(data) } )
     .done(function(data) {
         // Show top score
-        var results = jQuery.parseJSON(data);
-        var scores = "";
+        var results = jQuery.parseJSON(data);   
+        $("#scores").empty();
         for (i = 0; i < results.length; i++) {
            var cur = results[i];
-           scores += (i + 1) + ". " + tabify(cur[0]) + tabify(cur[1]) + cur[2] + "\n";
+           var scores = ['<li><span class="score_rank">', (i + 1), '.</span><span class="score_time">', cur[0], '</span><span class="score_player">', cur[1], '</span>', cur[2], '</li>'].join('');
+           $("#scores").append(scores);
         }
-        
-        $("#scores").text(scores);
-        $("#submit_form").hide();
+
         $("#score_area").show();
         $("#button_newgame").focus();
     });
@@ -104,7 +104,7 @@ $("html").keypress(function(e) {
                     }
                 }
                 
-                $("#doge").text('Score: ' + score);
+                $("#doge").text('Skore: ' + score);
             }
         }
     }
@@ -194,15 +194,4 @@ function getPlayerName() {
 // Validates the submit button
 function validateSubmitButton() {
     $("#button_submit").prop("disabled", getPlayerName() === "");
-}
-
-// Adds tabs after specified text
-// text: the text to tabify
-function tabify(text) {
-    var result = text;
-    var limit = 3 - Math.ceil(text.length / 8);
-    for (j = 0; j < limit; j++) {
-        result += "\t";
-    }
-    return result;
 }

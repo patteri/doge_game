@@ -35,6 +35,22 @@ p, pre {
 }
 
 #scores {
-    margin-left: 45px;
+    list-style: none;
+    margin-left: 55px;
     text-align: left;
+}
+
+.score_rank {
+    float: left;
+    width: 30px;
+}
+
+.score_time {
+    float: left;
+    width: 150px;
+}
+
+.score_player {
+    float: left;
+    width: 220px;
 }
