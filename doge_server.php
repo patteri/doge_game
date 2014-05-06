@@ -7,9 +7,10 @@ $doge_words = ["wow", "so cool", "amaze", "so yum", "so loyal", "such delicious"
 $filename = "topscores.json"; // Doge tip: database should be used instead of a file!
 $topScoreCount = 10; // Max count of top scores
 
-if(isset($_POST['submit_score'])) {
+$contents = file_get_contents("php://input");
+if($contents) {
     // Parse new score
-    $data = json_decode($_POST['submit_score']);
+    $data = json_decode($contents);
     if ($data != null && $data->{'player'} != null && $data->{'score'} != null && is_int($data->{'score'})) {
         $current = [date('d.m.Y H:i'), substr(trim($data->{'player'}), 0, 15), $data->{'score'}];
         

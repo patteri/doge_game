@@ -10,15 +10,8 @@ body {
 }
 
 p, pre {
-    font-size: 12pt;
-}
-
-.hidden {
-    display: none;
-}
-
-#word {
     font-family: comic sans ms, sans-serif;
+    font-size: 12pt;
 }
 
 #container {
@@ -30,11 +23,11 @@ p, pre {
     border: 1px solid #000000;
 }
 
-#input_name {
+.bottom_margin {
     margin-bottom: 10px;
 }
 
-#scores {
+.scores {
     list-style: none;
     margin-left: 55px;
     text-align: left;

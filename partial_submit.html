@@ -1,0 +1,5 @@
+<form>
+    Name: <input class="bottom_margin" name="name" type="text" maxlength="15" autofocus ng-model="$parent.playerName"/><br/>
+    <input type="button" value="Supmit skore!" ng-click="submit()" ng-disabled="!playerName"/>
+    <input type="button" value="Try again!" ng-click="newGame()"/>
+</form>

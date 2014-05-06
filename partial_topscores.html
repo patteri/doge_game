@@ -1,0 +1,10 @@
+<p>Top skores!</p>
+<ul class="scores">
+    <li ng-repeat="score in scores">
+        <span class="score_rank">{{$index + 1}}.</span>
+        <span class="score_time">{{score.date}}</span>
+        <span class="score_player">{{score.player}}</span>
+        <span>{{score.scores}}<span>
+    </li>
+</ul>
+<input type="button" value="Try again!" ng-click="newGame()"/>
